@@ -1,0 +1,44 @@
+<div class="intro">
+	<div class="g-text">
+		LKK IS A MAPMAKER FROM HONG KONG. SHE LIKES MAKING MAPS, FINDING NEW WAYS TO VISUALIZE GEOGRAPHY, AND TELLING STORIES.
+	</div>
+
+	<div class="g-text g-cn-cont">
+		<span>LKK</span> <span class="g-text-cn">是來自香港的地圖製作者。她喜歡以新方式將地理資訊視像化，也熱愛用地圖說故事。</span>
+	</div>
+</div>
+
+<div class="nav">
+	<div class="nav-item nav-item-maps active" data-id="maps">MAPS</div>
+	<div class="divider"> / </div>
+	<div class="nav-item nav-item-stories" data-id="stories">STORIES</div>
+</div>
+
+<div class="section active" id="maps">
+<% data.projects.forEach(function(d){ %>
+<div class="project-cont">
+	<div class="g-text-cn"><%- d.name_cn %></div>
+	<div class="g-text"><%- d.name.toUpperCase() %></div>
+	<div class="g-text g-small"><%- d.status.toUpperCase() %></div>
+	<div class="canvas">
+		<div class="inner" id="<%- d.id %>">
+		</div>
+	</div>
+</div>
+<% }) %>
+</div>
+
+<div class="section" id="stories">
+<% data.stories.forEach(function(d){ %>
+<div class="project-cont">
+	<div class="g-text-cn"><%- d.name_cn %></div>
+	<div class="g-text"><%- d.name.toUpperCase() %></div>
+	<div class="g-text g-small"><%- d.status.toUpperCase() %></div>
+	<div class="canvas">
+		<div class="inner">
+			
+		</div>
+	</div>
+</div>
+<% }) %>
+</div>

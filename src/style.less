@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'HK Map Font'; /*a name to be used later*/
+    src: url('https://www.lkk-store.com/lkk-map/Hong-Kong-Map-Type.otf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'MYuenHK'; /*a name to be used later*/
+    src: url('https://www.lkk-store.com/lkk-map/MYuenHK-Medium.ttf'); /*URL to font*/
+}
+
+body, html {
+	margin:  0;
+	padding:  0;
+	background: #000;
+	color:  #ececec;
+	font-family: 'HK Map Font', 'Varela Round', sans-serif;
+	text-align: center;
+}
+
+a, a:visited {
+	color: #ececec;
+}
+
+.g-footer {
+	padding: 100px 0 50px 0;
+	font-size: 8px;
+	opacity: 0.6;
+}
+
+.g-header {
+	padding: 30px 0 15px 0;
+	
+	img {
+		border: 1px solid rgba(255,255,255,0.5);
+		width: 60px;
+		padding: 15px;
+	}
+}
+
+img {
+	width: 100%;
+}
+
+.g-text {
+	font-size: 12px;
+	max-width: 300px;
+	margin: 0 auto 5px auto;
+	padding:  0 16px;
+	line-height: 1.5;
+}
+
+.g-text-cn {
+	font-family: 'MYuenHK';
+	font-size: 14px;
+	letter-spacing: 6px;
+
+	@media screen and (min-width: 460px) {
+		padding-left: 6px;
+	}
+}
+
+.g-small {
+	font-size: 8px;
+    opacity: 0.6;
+}
+
+.project-cont {
+	max-width: 600px;
+	margin: 0 auto 50px auto;
+	.canvas {
+		border: 1px solid #333;
+		margin: 10px auto;
+		position: relative;
+		.inner {
+			padding-bottom: 100%;
+		}
+
+		canvas {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+}
+
+.intro {
+	margin: 0 auto 50px auto;
+	.g-text {
+		max-width: 440px;
+		line-height: 1.7;
+	}
+
+	.g-text-cn {
+		padding-left: 0 !important;
+		letter-spacing: 2px;
+	}
+
+	.g-cn-cont {
+		max-width: 354px;
+		margin-top: 10px;
+	}
+}
+
+.nav {
+	margin: 0 auto 50px auto;
+	font-size: 13px;
+	div {
+		display: inline-block;
+		opacity: 0.5;
+	}
+
+	.nav-item {
+		cursor: pointer;
+	}
+
+	.active {
+		opacity: 1;
+		border-bottom: 2px solid #fff;;
+		padding-bottom: 2px;
+	}
+}
+
+.section {
+	display: none;
+
+	&.active {
+		display: block;
+	}
+}
