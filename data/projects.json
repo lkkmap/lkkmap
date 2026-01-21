@@ -1,7 +1,31 @@
 [   
     {
-        "name": "SCREEN PRINTED BLACK CLOTH MAP",
+        "index": "PROJECT 001",
+        "name": "SILKSCREEN CLOTH MAP",
         "name_cn": "黑布地圖",
-        "status": "Sold out"
+        "status": "Sold out",
+        "id": "cloth"
+    },
+    {
+        "index": "PROJECT 002",
+        "name": "RAISED RELIEF POSTCARD",
+        "name_cn": "凹凸地圖",
+        "status": "Coming soon.",
+        "id": "postcard"
+    },
+    {
+        "index": "BLOG 001",
+        "name": "FOUR TRAILS",
+        "link": "blogs/four-trails"
+    },
+    {
+        "index": "BLOG 002",
+        "name": "MARATHON",
+        "link": "blogs/hong-kong-marathon"
+    },
+    {
+        "index": "BLOG 003",
+        "name": "SUNFUYEAH100",
+        "link": "blogs/sunfuyeah100"
     }
 ]

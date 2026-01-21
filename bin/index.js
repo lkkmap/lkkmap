@@ -42,9 +42,7 @@ function compile() {
 	// 	}
 	// })
 	
-	var pages = ["index"]
-
-	var script = fs.readFileSync("src/script.js", "utf8");
+	var pages = ["index"];
 
 	var c = child.exec("lessc src/style.less " + currentPath + "/build/style.css", (err, stdout, stderr) => {
 
@@ -54,7 +52,9 @@ function compile() {
 
 		pages.forEach(function(page){
 
-			var html = page == "index" ? fs.readFileSync("src/index.jst.html", "utf8") : fs.readFileSync("src/shop.jst.html", "utf8");;
+			// var html = page == "index" ? fs.readFileSync("src/index.jst.html", "utf8") : fs.readFileSync("src/shop.jst.html", "utf8");
+
+			var html = page == "index" ? fs.readFileSync("src/index.jst.html", "utf8") : fs.readFileSync("src/cloth.jst.html", "utf8");
 
 			var ejs_rendered = ejs.render(html, {pages: pages, page: page, d3: d3, data: data});
 
@@ -80,7 +80,7 @@ function compile() {
 			out += '</head>\n';
 			out += '<body>\n';
 
-			out += '<div class="g-header"><a href="https://www.lkk-store.com/lkk-map/"><div class="g-hed-text"><p class="g-big-hed" a href="/"><img src="https://www.lkk-store.com/lkk-map/lkk-map-logo-white.png" alt="LKK MAP" /></p></div></a></div>';
+			out += '<div class="g-header"><a href="https://www.lkkmap.com/"><div class="g-hed-text"><p class="g-big-hed" a href="/"><img src="https://www.lkk-store.com/lkk-map/lkk-map-logo-white.png" alt="LKK MAP" /></p></div></a></div>';
 
 			out += ejs_rendered;
 
@@ -88,22 +88,17 @@ function compile() {
 
 			// out += "\n<script src='src/three.js'></script>\n";
 			// out += "\n<script src='src/OrbitControls.js'></script>\n";
-			// out += "\n<script src='src/origami.js'></script>\n";
-			out += "\n<script>\n";
-			out += script;
-			out += "\n</script>\n";
+			// out += "\n<script src='src/GLTFLoader.js'></script>\n";
+			// out += "\n<script src='src/paper.js'></script>\n";
+			// out += "\n<script>\n";
+			// out += script;
+			// out += "\n</script>\n";
 			
 			// out += '</div>\n'
 			out += '</body>\n'
 			out += '</html>\n'
 
-			if (page != "index") {
-				if (!fs.existsSync("a/shop/" + page)) {
-				    fs.mkdirSync("a/shop/" + page);
-				}
-			}
-
-			var output_name = page == "index" ? "index" : "a/shop/" + page + "/index";
+			var output_name = page == "index" ? "index" : "projects/" + page + "/index";
 
 			fs.writeFileSync(output_name + ".html", out);
 		})

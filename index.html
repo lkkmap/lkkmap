@@ -49,17 +49,31 @@ a:visited {
   color: #ececec;
 }
 .g-footer {
+  display: none;
   padding: 100px 0 50px 0;
   font-size: 8px;
   opacity: 0.6;
 }
 .g-header {
-  padding: 30px 0 15px 0;
+  padding: 0;
+  position: absolute;
+  z-index: 9;
+  top: 15px;
+  right: 15px;
 }
 .g-header img {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  width: 60px;
-  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 30px;
+  padding: 8px;
+}
+@media screen and (min-width: 600px) {
+  .g-header img {
+    width: 40px;
+    padding: 10px;
+  }
+}
+.g-header .g-big-hed {
+  margin: 0;
 }
 img {
   width: 100%;
@@ -86,16 +100,15 @@ img {
   opacity: 0.6;
 }
 .project-cont {
-  max-width: 600px;
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
 }
 .project-cont .canvas {
-  border: 1px solid #333;
-  margin: 10px auto;
+  margin: 0 auto;
   position: relative;
 }
 .project-cont .canvas .inner {
-  padding-bottom: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 .project-cont .canvas canvas {
   position: absolute;
@@ -139,10 +152,159 @@ img {
 .section.active {
   display: block;
 }
+#paper {
+  overflow: hidden;
+  position: relative;
+}
+.icon {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 999;
+  width: 30px;
+  opacity: 0.3;
+}
+.project-outer {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: calc(100% - 100px);
+  height: 80px;
+}
+.project-list {
+  position: absolute;
+  z-index: 99;
+  font-size: 9px;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+  text-align: left;
+  right: -15px;
+  width: calc(100%);
+  overflow: scroll;
+}
+@media screen and (min-width: 600px) {
+  .project-list {
+    font-size: 12px;
+  }
+}
+.project-list-inner {
+  padding-bottom: 30px;
+}
+.project-list .index,
+.project-list .name {
+  display: inline-block;
+}
+.project-list .index {
+  opacity: 0.6;
+  width: 90px;
+}
+@media screen and (min-width: 600px) {
+  .project-list .index {
+    width: 120px;
+  }
+}
+.project-list .project {
+  margin-bottom: 3px;
+}
+.project-list .project a {
+  text-decoration: none;
+}
+.project-list .button,
+.button.active {
+  display: inline-block;
+  width: auto;
+  cursor: pointer;
+}
+.project.active .button,
+.button.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.more {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+  font-size: 11px;
+  padding: 15px;
+}
+@media screen and (min-width: 600px) {
+  .more {
+    bottom: 0;
+    right: 0;
+    padding: 50px;
+  }
+}
+.more img {
+  width: 12px;
+  transform: rotate(90deg);
+}
+.more span,
+.more img {
+  display: inline-block;
+  vertical-align: middle;
+}
+.more-postcard {
+  display: none;
+  padding-bottom: 25px;
+}
+.cloth-options {
+  position: absolute;
+  top: 110px !important;
+  right: 18px !important;
+  padding: 0;
+  font-size: 7px;
+  text-align: right;
+  opacity: 1;
+}
+.cloth-options .title {
+  border-bottom: 1px solid #fff;
+  margin-bottom: 3px;
+  display: inline-block;
+  padding-bottom: 2px;
+  opacity: 0.5;
+}
+.cloth-options .button {
+  display: block;
+  padding: 1px 0;
+  font-size: 8px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.cloth-options .button.active {
+  opacity: 1;
+}
+video {
+  width: 100%;
+  max-width: 250px;
+}
+.small-title {
+  margin-bottom: 10px;
+  opacity: 0.5;
+  font-size: 11px;
+  text-align: center;
+  padding-left: 20px;
+}
+.cloth-body {
+  padding-top: 50px;
+  position: relative;
+  z-index: 99999999;
+}
+.cloth-body .body-section {
+  margin: 50px auto;
+}
+.cloth-scroll-down {
+  cursor: pointer;
+}
+.small-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.5;
+}
 </style>
 </head>
 <body>
-<div class="g-header"><a href="https://www.lkk-store.com/lkk-map/"><div class="g-hed-text"><p class="g-big-hed" a href="/"><img src="https://www.lkk-store.com/lkk-map/lkk-map-logo-white.png" alt="LKK MAP" /></p></div></a></div><div class="intro">
+<div class="g-header"><a href="https://www.lkkmap.com/"><div class="g-hed-text"><p class="g-big-hed" a href="/"><img src="https://www.lkk-store.com/lkk-map/lkk-map-logo-white.png" alt="LKK MAP" /></p></div></a></div><!-- <div class="intro">
 	<div class="g-text">
 		LKK IS A MAPMAKER FROM HONG KONG. SHE LIKES MAKING MAPS, FINDING NEW WAYS TO VISUALIZE GEOGRAPHY, AND TELLING STORIES.
 	</div>
@@ -150,124 +312,130 @@ img {
 	<div class="g-text g-cn-cont">
 		<span>LKK</span> <span class="g-text-cn">是來自香港的地圖製作者。她喜歡以新方式將地理資訊視像化，也熱愛用地圖說故事。</span>
 	</div>
-</div>
+</div> -->
 
-<div class="nav">
-	<div class="nav-item nav-item-maps active" data-id="maps">MAPS</div>
-	<div class="divider"> / </div>
-	<div class="nav-item nav-item-stories" data-id="stories">STORIES</div>
+<div class="project-outer">
+<div class="project-list">
+	<div class="project-list-inner">
+	
+		<div class="project active" data-id="cloth" id="cloth-nav">
+			<div class="button button-cloth" data-id="cloth">
+			<div class="index">
+				PROJECT 001
+			</div>
+			<div class="name">
+				SILKSCREEN CLOTH MAP
+			</div>
+			</div>
+		</div>
+	
+		<div class="project " data-id="postcard" id="postcard-nav">
+			<div class="button button-postcard" data-id="postcard">
+			<div class="index">
+				PROJECT 002
+			</div>
+			<div class="name">
+				RAISED RELIEF POSTCARD
+			</div>
+			</div>
+		</div>
+	
+		<div class="project " data-id="" id="">
+			<a href='blogs/four-trails'>
+			<div class="index">
+				BLOG 001
+			</div>
+			<div class="name">
+				FOUR TRAILS
+			</div>
+			</a>
+		</div>
+	
+		<div class="project " data-id="" id="">
+			<a href='blogs/hong-kong-marathon'>
+			<div class="index">
+				BLOG 002
+			</div>
+			<div class="name">
+				MARATHON
+			</div>
+			</a>
+		</div>
+	
+		<div class="project " data-id="" id="">
+			<a href='blogs/sunfuyeah100'>
+			<div class="index">
+				BLOG 003
+			</div>
+			<div class="name">
+				SUNFUYEAH100
+			</div>
+			</a>
+		</div>
+	
+	</div>
+</div>
 </div>
 
 <div class="section active" id="maps">
-
 <div class="project-cont">
-	<div class="g-text-cn">黑布地圖</div>
-	<div class="g-text">SCREEN PRINTED BLACK CLOTH MAP</div>
-	<div class="g-text g-small">SOLD OUT</div>
 	<div class="canvas">
-		<div class="inner" id="">
+		<!-- <div class="icon"><img src="img/3dicon.png" alt=""></div> -->
+		<div class="inner" id="canvas">
 		</div>
 	</div>
-</div>
 
-</div>
-
-<div class="section" id="stories">
-
-<div class="project-cont">
-	<div class="g-text-cn"></div>
-	<div class="g-text">SUNFUYEAH100</div>
-	<div class="g-text g-small">29/11/2024</div>
-	<div class="canvas">
-		<div class="inner">
-			
-		</div>
+	<div class="more cloth-options more-cloth">
+		<div class="title">PICK A MAP</div>
+		<div class="button active" data-id="four-trails">FOUR TRAILS</div>
+		<div class="button" data-id="kowloon-peak">KOWLOON PEAK</div>
+		<div class="button" data-id="cheung-tsui">CHEUNG TSUI</div>
+		<div class="button" data-id="howe-sound">HOWE SOUND CREST TRAIL</div>
 	</div>
-</div>
 
-<div class="project-cont">
-	<div class="g-text-cn"></div>
-	<div class="g-text">SUNSHINE COAST TRAIL</div>
-	<div class="g-text g-small">22-26/7/2024</div>
-	<div class="canvas">
-		<div class="inner">
-			
-		</div>
+
+	<!-- <div class="more postcard more-postcard">COMING SOON.</div>
+
+	<div class="more more-cloth cloth-scroll-down">
+		<span>MORE ABOUT THIS PROJECT</span> <img src="img/arrow.png" alt="">
+	</div> -->
+</div>
+</div>
+<!-- 
+<div class="more-cloth cloth-body">
+
+	<div class="body-section">
+		<div class="small-text">Map by @lkk</div>
+		<div class="small-text">Type design by @fibikung</div>
+		<div class="small-text">Production by @lkk @hakdim</div>
+		<div class="small-text">Silk screen by Colorful Screen Print</div>
+		<div class="small-text">18" by 18" black cloth</div>
+		<div class="small-text">14" by 14" print</div>
+		<div class="small-text">Hand made silk screen printing on 100% cotton cloth</div>
+		<div class="small-text">Made in hong kong</div>
 	</div>
-</div>
 
-<div class="project-cont">
-	<div class="g-text-cn"> 香港馬拉松</div>
-	<div class="g-text">HONG KONG MARATHON</div>
-	<div class="g-text g-small">21/1/2024</div>
-	<div class="canvas">
-		<div class="inner">
-			
-		</div>
+	<div class="body-section">
+		<div class="small-title">THE MAKING OF</div>
+		<video src="video/lkk-cloth-map.mp4" controls muted></video>
 	</div>
-</div>
 
-<div class="project-cont">
-	<div class="g-text-cn">香港四徑</div>
-	<div class="g-text">HONG KONG FOUR TRAILS</div>
-	<div class="g-text g-small">SUMMER 2022</div>
-	<div class="canvas">
-		<div class="inner">
-			
-		</div>
-	</div>
-</div>
 
-<div class="project-cont">
-	<div class="g-text-cn">飛鵝山</div>
-	<div class="g-text">KOWLOON PEAK</div>
-	<div class="g-text g-small">ALWAYS</div>
-	<div class="canvas">
-		<div class="inner">
-			
-		</div>
-	</div>
-</div>
+</div> -->
 
-<div class="project-cont">
-	<div class="g-text-cn"></div>
-	<div class="g-text">VIA ALPINA</div>
-	<div class="g-text g-small">10/2021</div>
-	<div class="canvas">
-		<div class="inner">
-			
-		</div>
-	</div>
-</div>
-
-</div><div class="g-footer"><div class="g-small">© LKK MAP 2025</div></div>
-<script>
-let navitems = document.querySelectorAll('.nav-item');
-let sections = document.querySelectorAll(".section");
-
-const queryString = window.location.search;
-let hash = queryString.replace("?", "");
-
-if (hash) {
-	sections.forEach(section => { section.classList.remove('active'); });
-	document.querySelector("#" + hash).classList.add('active');
-
-	navitems.forEach(item => { item.classList.remove('active'); });
-	document.querySelector(".nav-item-" + hash).classList.add('active');
-}
-
-for (let i = 0; i < navitems.length; i++) {
-	navitems[i].addEventListener('click', function() {
-		for (let j = 0; j < navitems.length; j++) {
-			navitems[j].classList.remove('active');
+<script type="importmap">
+	{
+		"imports": {
+			"three": "./lib/three.module.js",
+			"three/addons/": "./lib/jsm/"
 		}
-		this.classList.add('active');
-
-		let id = this.getAttribute('data-id');
-		sections.forEach(section => { section.classList.remove('active'); });
-		document.querySelector("#" + id).classList.add('active');
-	});
-}
+	}
 </script>
-</body>
+
+<script type="module" src="lib/script.js"></script>
+<script type="module" src="lib/cloth.js"></script>
+<script type="module" src="lib/postcard.js"></script>
+
+
+<div class="g-footer"><div class="g-small">© LKK MAP 2025</div></div></body>
 </html>

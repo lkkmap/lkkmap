@@ -24,17 +24,31 @@ a:visited {
   color: #ececec;
 }
 .g-footer {
+  display: none;
   padding: 100px 0 50px 0;
   font-size: 8px;
   opacity: 0.6;
 }
 .g-header {
-  padding: 30px 0 15px 0;
+  padding: 0;
+  position: absolute;
+  z-index: 9;
+  top: 15px;
+  right: 15px;
 }
 .g-header img {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  width: 60px;
-  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 30px;
+  padding: 8px;
+}
+@media screen and (min-width: 600px) {
+  .g-header img {
+    width: 40px;
+    padding: 10px;
+  }
+}
+.g-header .g-big-hed {
+  margin: 0;
 }
 img {
   width: 100%;
@@ -61,16 +75,15 @@ img {
   opacity: 0.6;
 }
 .project-cont {
-  max-width: 600px;
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
 }
 .project-cont .canvas {
-  border: 1px solid #333;
-  margin: 10px auto;
+  margin: 0 auto;
   position: relative;
 }
 .project-cont .canvas .inner {
-  padding-bottom: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 .project-cont .canvas canvas {
   position: absolute;
@@ -113,4 +126,153 @@ img {
 }
 .section.active {
   display: block;
+}
+#paper {
+  overflow: hidden;
+  position: relative;
+}
+.icon {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 999;
+  width: 30px;
+  opacity: 0.3;
+}
+.project-outer {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: calc(100% - 100px);
+  height: 80px;
+}
+.project-list {
+  position: absolute;
+  z-index: 99;
+  font-size: 9px;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+  text-align: left;
+  right: -15px;
+  width: calc(100%);
+  overflow: scroll;
+}
+@media screen and (min-width: 600px) {
+  .project-list {
+    font-size: 12px;
+  }
+}
+.project-list-inner {
+  padding-bottom: 30px;
+}
+.project-list .index,
+.project-list .name {
+  display: inline-block;
+}
+.project-list .index {
+  opacity: 0.6;
+  width: 90px;
+}
+@media screen and (min-width: 600px) {
+  .project-list .index {
+    width: 120px;
+  }
+}
+.project-list .project {
+  margin-bottom: 3px;
+}
+.project-list .project a {
+  text-decoration: none;
+}
+.project-list .button,
+.button.active {
+  display: inline-block;
+  width: auto;
+  cursor: pointer;
+}
+.project.active .button,
+.button.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.more {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+  font-size: 11px;
+  padding: 15px;
+}
+@media screen and (min-width: 600px) {
+  .more {
+    bottom: 0;
+    right: 0;
+    padding: 50px;
+  }
+}
+.more img {
+  width: 12px;
+  transform: rotate(90deg);
+}
+.more span,
+.more img {
+  display: inline-block;
+  vertical-align: middle;
+}
+.more-postcard {
+  display: none;
+  padding-bottom: 25px;
+}
+.cloth-options {
+  position: absolute;
+  top: 110px !important;
+  right: 18px !important;
+  padding: 0;
+  font-size: 7px;
+  text-align: right;
+  opacity: 1;
+}
+.cloth-options .title {
+  border-bottom: 1px solid #fff;
+  margin-bottom: 3px;
+  display: inline-block;
+  padding-bottom: 2px;
+  opacity: 0.5;
+}
+.cloth-options .button {
+  display: block;
+  padding: 1px 0;
+  font-size: 8px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.cloth-options .button.active {
+  opacity: 1;
+}
+video {
+  width: 100%;
+  max-width: 250px;
+}
+.small-title {
+  margin-bottom: 10px;
+  opacity: 0.5;
+  font-size: 11px;
+  text-align: center;
+  padding-left: 20px;
+}
+.cloth-body {
+  padding-top: 50px;
+  position: relative;
+  z-index: 99999999;
+}
+.cloth-body .body-section {
+  margin: 50px auto;
+}
+.cloth-scroll-down {
+  cursor: pointer;
+}
+.small-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.5;
 }
